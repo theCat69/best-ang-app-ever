@@ -6,6 +6,28 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
+import { DefaultTitleStrategy, TitleStrategy } from "@angular/router";
+import { MockInstance, MockService, ngMocks } from 'ng-mocks';
+
+// In case, if you use @angular/router and Angular 14+.
+// You might want to set a mock of DefaultTitleStrategy as TitleStrategy.
+// A14 fix: making DefaultTitleStrategy to be a default mock for TitleStrategy
+
+ngMocks.defaultMock(TitleStrategy, () => MockService(DefaultTitleStrategy));
+
+// auto spy
+ngMocks.autoSpy('jasmine');
+// in case of jest
+// ngMocks.autoSpy('jest');
+
+// auto restore for jasmine and jest <27
+// declare const jasmine: any;
+jasmine.getEnv().addReporter({
+  specDone: MockInstance.restore,
+  specStarted: MockInstance.remember,
+  suiteDone: MockInstance.restore,
+  suiteStarted: MockInstance.remember,
+});
 
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
@@ -24,3 +46,5 @@ getTestBed().initTestEnvironment(
 const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().forEach(context);
+ 
+

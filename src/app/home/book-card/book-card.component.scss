@@ -1,0 +1,17 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+mat-card {
+    max-height: 750px;
+    max-width: 400px;
+    background-color: rgb(199, 199, 199);
+    margin: 5px;
+}
+
+.book-cover {
+    max-height: 300px;
+    width: auto;
+}

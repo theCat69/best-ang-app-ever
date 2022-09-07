@@ -1,0 +1,24 @@
+<div class="book-form" [formGroup]="bookForm">
+    <h2>Add your own book !</h2>
+    <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input matInput type="text" formControlName="author">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>title</mat-label>
+        <input matInput type="text" formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Picture</mat-label>
+        <input matInput type="url" formControlName="picture">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>synopsis</mat-label>
+        <textarea matInput type="text" formControlName="synopsis"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Year</mat-label>
+        <input matInput type="number" formControlName="year">
+    </mat-form-field>
+    <button mat-button color="primary" (click)="addBook()">Add book</button>
+</div>   

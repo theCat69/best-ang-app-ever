@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title-group>
+        <mat-card-title>{{ book.title }}</mat-card-title>
+        <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+        <span>{{ book.year }}</span>
+    </mat-card-title-group>
+    <div class="flex-container">
+        <img class="book-cover" mat-card-image src="{{ book.picture }}" alt="Photo of cover">
+    </div>
+    <mat-card-content>
+        <p>{{ book.synopsis }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button color="primary" (click)="deleteBook(book.id)">Delete book</button>
+    </mat-card-actions>
+</mat-card>

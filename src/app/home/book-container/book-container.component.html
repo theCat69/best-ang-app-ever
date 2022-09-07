@@ -1,0 +1,4 @@
+<div class="flex-container">
+    <app-book-card *ngFor="let book of books$ | async" [book]="book" (deleteBookEvent)="deleteBook($event)">
+    </app-book-card>
+</div>
